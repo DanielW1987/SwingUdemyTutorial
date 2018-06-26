@@ -1,4 +1,6 @@
-package com.wagner;
+package com.wagner.listener;
+
+import com.wagner.event.FormEvent;
 
 import java.util.EventListener;
 

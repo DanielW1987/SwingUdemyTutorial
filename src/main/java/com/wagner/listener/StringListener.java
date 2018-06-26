@@ -1,4 +1,4 @@
-package com.wagner;
+package com.wagner.listener;
 
 public interface StringListener {
 

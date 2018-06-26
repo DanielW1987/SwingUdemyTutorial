@@ -1,4 +1,6 @@
-package com.wagner;
+package com.wagner.main;
+
+import com.wagner.ui.MainFrame;
 
 import javax.swing.*;
 

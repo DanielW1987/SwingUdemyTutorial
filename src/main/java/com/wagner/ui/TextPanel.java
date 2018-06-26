@@ -1,4 +1,6 @@
-package com.wagner;
+package com.wagner.ui;
+
+import com.wagner.listener.StringListener;
 
 import javax.swing.*;
 import java.awt.*;

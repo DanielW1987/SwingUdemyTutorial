@@ -1,4 +1,6 @@
-package com.wagner;
+package com.wagner.ui;
+
+import com.wagner.listener.StringListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,21 +11,21 @@ import java.util.List;
 
 class Toolbar extends JPanel implements ActionListener {
 
-    private JButton saveButton;
-    private JButton openButton;
+    private JButton              exportButton;
+    private JButton              importButton;
     private List<StringListener> stringListeners;
 
     Toolbar(){
         super(new FlowLayout(FlowLayout.LEFT));
         this.stringListeners = new ArrayList<>();
-        this.saveButton      = new JButton("Save");
-        this.openButton      = new JButton("Open");
+        this.exportButton    = new JButton("Export");
+        this.importButton    = new JButton("Import");
 
-        this.saveButton.addActionListener(this);
-        this.openButton.addActionListener(this);
+        this.exportButton.addActionListener(this);
+        this.importButton.addActionListener(this);
 
-        this.add(saveButton);
-        this.add(openButton);
+        this.add(exportButton);
+        this.add(importButton);
     }
 
     void registerStringListener(StringListener listener){
@@ -34,10 +36,10 @@ class Toolbar extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton buttonClicked = (JButton) e.getSource();
         for(StringListener listener : stringListeners){
-            if(buttonClicked == saveButton){
+            if(buttonClicked == exportButton){
                listener.textEmitted("Save" + System.lineSeparator());
             }
-            else if(buttonClicked == openButton){
+            else if(buttonClicked == importButton){
                 listener.textEmitted("Open" + System.lineSeparator());
             }
             else{
