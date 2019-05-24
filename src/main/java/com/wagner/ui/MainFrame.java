@@ -39,11 +39,11 @@ public class MainFrame extends JFrame {
   private void initComponents(){
     this.textPanel         = new TextPanel();
     this.tablePanel        = new TablePanel();
-    this.button            = new JButton("Click me!");
     this.toolbar           = new Toolbar();
     this.formPanel         = new FormPanel();
     this.fileChooser       = new JFileChooser();
     this.preferencesDialog = new PreferencesDialog(this);
+    this.button            = new JButton("Click me!");
 
     this.toolbar.registerStringListener(this.textPanel);
     this.tablePanel.setData(controller.getPersons());
@@ -57,9 +57,10 @@ public class MainFrame extends JFrame {
   private void addComponents(){
     this.add(toolbar, BorderLayout.NORTH);
     this.add(tablePanel, BorderLayout.CENTER);
-    this.add(button, BorderLayout.SOUTH);
+    this.add(textPanel, BorderLayout.SOUTH);
     this.add(formPanel, BorderLayout.WEST);
     this.setJMenuBar(createMenuBar());
+
     this.pack();
     this.setMinimumSize(this.getPreferredSize());
   }
@@ -80,7 +81,6 @@ public class MainFrame extends JFrame {
     ImageIcon exitIcon             = new ImageIcon(this.getClass().getClassLoader().getResource("exit.png"));
     ImageIcon importIcon           = new ImageIcon(this.getClass().getClassLoader().getResource("import.png"));
     ImageIcon exportIcon           = new ImageIcon(this.getClass().getClassLoader().getResource("export.png"));
-
     JMenuItem importDataMenuItem   = new JMenuItem("Import data...", importIcon);
     JMenuItem exportDataMenuItem   = new JMenuItem("Export data...", exportIcon);
     JMenuItem exitDataMenuItem     = new JMenuItem("Exit", exitIcon);
